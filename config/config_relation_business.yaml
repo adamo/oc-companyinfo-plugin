@@ -1,0 +1,8 @@
+busienss:
+    label: depcore.companyinfo::lang.business.menu_label
+    view:
+        form: $/depcore/companyinfo/models/business/fields.yaml
+        toolbarButtons: update|delete
+    manage:
+        form: $/depcore/companyinfo/models/business/fields.yaml
+        list: $/depcore/companyinfo/models/business/columns.yaml

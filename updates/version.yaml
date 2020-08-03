@@ -1,0 +1,7 @@
+1.0.1:
+  - Create and update tables
+  - add_address_fields_to_user_table.php
+  - create_businesses_table.php
+1.0.2:
+  - Add phone field to users
+  - add_phone_to_user_table.php

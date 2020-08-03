@@ -1,0 +1,92 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+phone:
+    tab: depcore.companyinfo::lang.user.address
+    label: depcore.companyinfo::lang.user.phone_number
+    type: text
+    span: left
+street:
+    tab: depcore.companyinfo::lang.user.address
+    label: depcore.companyinfo::lang.user.street
+    type: text
+    span: left
+number:
+    tab: depcore.companyinfo::lang.user.address
+    label: depcore.companyinfo::lang.user.street_number
+    type: text
+    span: right
+post_code:
+    tab: depcore.companyinfo::lang.user.address
+    label: depcore.companyinfo::lang.user.post_code
+    span: left
+city:
+    tab: depcore.companyinfo::lang.user.address
+    label: depcore.companyinfo::lang.user.city
+    span: right
+
+# country_id:
+#     label: depcore.companyinfo::lang.user.country
+#     placeholder: depcore.companyinfo::lang.user.country_select
+#     tab: depcore.companyinfo::lang.user.company_info
+#     type: dropdown
+#     span: left
+
+# state_id:
+#     label: depcore.companyinfo::lang.user.state
+#     placeholder: depcore.companyinfo::lang.user.state_select
+#     tab: depcore.companyinfo::lang.user.company_info
+#     label: rainlab.location::lang.state.label
+#     type: dropdown
+#     span: right
+#     dependsOn: user_country
+
+business[company_name]:
+    tab: depcore.companyinfo::lang.business.company_info
+    label: depcore.companyinfo::lang.business.comapny_name
+    type: text
+    span: left
+business[identification_number]:
+    tab: depcore.companyinfo::lang.business.company_info
+    label: depcore.companyinfo::lang.business.identification_number
+    type: text
+    span: right
+address_section:
+    type: section
+    tab: depcore.companyinfo::lang.business.company_info
+    label: depcore.companyinfo::lang.business.address
+business[street_name]:
+    tab: depcore.companyinfo::lang.business.company_info
+    label: depcore.companyinfo::lang.business.street
+    type: text
+    span: left
+business[street_number]:
+    tab: depcore.companyinfo::lang.business.company_info
+    label: depcore.companyinfo::lang.business.street_number
+    type: text
+    span: right
+business[post_code]:
+    tab: depcore.companyinfo::lang.business.company_info
+    label: depcore.companyinfo::lang.business.post_code
+    span: left
+business[city]:
+    tab: depcore.companyinfo::lang.business.company_info
+    label: depcore.companyinfo::lang.business.city
+    span: right
+
+# business[country_id]:
+#     label: depcore.companyinfo::lang.business.country
+#     placeholder: depcore.companyinfo::lang.business.country_select
+#     tab: depcore.companyinfo::lang.business.company_info
+#     type: dropdown
+#     span: left
+
+# business[state_id]:
+#     label: depcore.companyinfo::lang.business.state
+#     placeholder: depcore.companyinfo::lang.business.state_select
+#     tab: depcore.companyinfo::lang.business.company_info
+#     label: rainlab.location::lang.state.label
+#     type: dropdown
+#     span: right
+#     dependsOn: country
