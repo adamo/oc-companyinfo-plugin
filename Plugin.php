@@ -81,11 +81,6 @@ class Plugin extends PluginBase
                 'key' => 'user_id',
             ];
 
-            $model->bindEvent('model.afterCreate', function() use ($model) {
-                $id = $model->id;
-                $model->business->user_id = $id; // Manually set the parent id to the subgroup
-                $model->business->save();
-            });
 
         });
 
