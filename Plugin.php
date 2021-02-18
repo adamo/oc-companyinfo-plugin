@@ -47,8 +47,6 @@ class Plugin extends PluginBase
      */
     public function boot() {
 
-
-
         Event::listen('backend.form.extendFields', function ($widget) {
 
             if (!$widget->model instanceof User) return;
@@ -80,7 +78,6 @@ class Plugin extends PluginBase
                 'Depcore\CompanyInfo\Models\Business',
                 'key' => 'user_id',
             ];
-
 
         });
 

@@ -39,7 +39,7 @@ class Business extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = ['user_id','company_name','identification_number','street_name','street_number','post_code','city','country_id','state_id'];
+    protected $fillable = ['user_id','company_name','identification_number','street_name','street_number','post_code','city','notices'];
 
     /**
      * @var array Attributes to be cast to Argon (Carbon) instances
