@@ -71,13 +71,16 @@ class Plugin extends PluginBase
         });
 
         User::extend( function($model) {
+            
             $model->bindEvent('model.beforeDelete', function() use ($model) {
                 $model->business && $model->business->delete();
             });
-
+            
             $model->bindEvent('model.beforeSave', function() use ($model) {
+                
                 $data = post('business');
                 if(!$model->business) $model->business = new Business;
+                if(!$data) return;
                 $model->business->fill($data);
                 $model->business->save();
             });
