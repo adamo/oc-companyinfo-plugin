@@ -2,9 +2,3 @@
   - Create and update tables
   - add_address_fields_to_user_table.php
   - create_businesses_table.php
-1.0.2:
-  - Add phone field to users
-  - add_phone_to_user_table.php
-1.0.3:
-  - Add notices to business table
-  - add_notices_to_business_table.php
