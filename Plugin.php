@@ -77,9 +77,11 @@ class Plugin extends PluginBase
 
             $model->bindEvent('model.beforeSave', function() use ($model) {
                 $data = post('business');
+                if(!$model->business) $model->business = new Business;
                 $model->business->fill($data);
                 $model->business->save();
             });
+
 
         });
 
