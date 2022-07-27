@@ -14,7 +14,7 @@ use Yaml;
 class Plugin extends PluginBase
 {
 
-    public $require = ['RainLab.User','RainLab.Location'];
+    public $require = ['RainLab.User'];
 
     /**
      * Returns information about this plugin.
@@ -29,15 +29,6 @@ class Plugin extends PluginBase
             'author'      => 'Depcore',
             'icon'        => 'icon-leaf'
         ];
-    }
-
-    /**
-     * Register method, called when the plugin is first registered.
-     *
-     * @return void
-     */
-    public function register() {
-
     }
 
     /**
@@ -69,19 +60,37 @@ class Plugin extends PluginBase
                 'street',
                 'number',
                 'post_code',
-                'city'
+                'city',
             ]);
 
-            $model->implement = ['RainLab.Location.Behaviors.LocationModel'];
-
             $model->hasOne['business'] = [
-                'Depcore\CompanyInfo\Models\Business',
+                Business::class,
                 'key' => 'user_id',
             ];
 
         });
 
-        UsersController::extendFormFields( function( $form ){
+        User::extend( function($model) {
+            $model->bindEvent('model.beforeDelete', function() use ($model) {
+                $model->business && $model->business->delete();
+            });
+
+            $model->bindEvent('model.beforeSave', function() use ($model) {
+                $data = post('business');
+                $model->business->fill($data);
+                $model->business->save();
+            });
+
+        });
+
+
+        UsersController::extendFormFields( function( $form, $model ) {
+
+            if(!$model instanceof User) return;
+            if(!$model->exists) return;
+
+            Business::getFromUser( $model );
+
             $form->addTabFields(
                 Yaml::parseFile(plugins_path().'/depcore/companyinfo/models/business/fields.yaml')
             );

@@ -8,9 +8,6 @@ use Model;
 class Business extends Model
 {
     // use \October\Rain\Database\Traits\Validation;
-    public $implement = ['RainLab.Location.Behaviors.LocationModel'];
-
-    // use \October\Rain\Database\Traits\Validation;
 
     // public $rules = [
     //     'identification_number' => 'sometimes|required',
@@ -55,5 +52,18 @@ class Business extends Model
     public $belongsTo = [
         'user' => '\RainLab\Users\Models\User',
     ];
+
+
+    public static function getFromUser($user)
+    {
+        if($user->profile) return $user->profile();
+
+        $profile = new static;
+        $profile->user = $user;
+        $profile->save();
+
+        $user->profile = $profile;
+        return $profile;
+    }
 
 }
