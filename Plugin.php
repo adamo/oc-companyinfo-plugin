@@ -44,13 +44,19 @@ class Plugin extends PluginBase
             if (!$widget->model->business) {
                 $widget->model->business = new Business();
                 $widget->model->business->user_id = 1; // temp information probably needs defered  binding
+
             }
 
         });
 
         Event::listen('rainlab.user.register', function ( $user, $data ) {
-            $user->business = new Business( $data['business'] );
-            $user->save(  );
+            if (array_key_exists('business',$data)
+            {
+                $data['business']['company_name'] = '-';
+                $data['business']['identification_number'] = '-';
+                $user->business = new Business( $data['business'] );
+                $user->save(  );
+            }
         });
 
         User::extend( function( $model ) {
@@ -71,23 +77,21 @@ class Plugin extends PluginBase
         });
 
         User::extend( function($model) {
-            
+
             $model->bindEvent('model.beforeDelete', function() use ($model) {
                 $model->business && $model->business->delete();
             });
-            
+
             $model->bindEvent('model.beforeSave', function() use ($model) {
-                
                 $data = post('business');
+                if(!$data) return;
                 if(!$model->business) $model->business = new Business;
                 if(!$data) return;
                 $model->business->fill($data);
                 $model->business->save();
             });
 
-
         });
-
 
         UsersController::extendFormFields( function( $form, $model ) {
 

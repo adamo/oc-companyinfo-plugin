@@ -66,4 +66,10 @@ class Business extends Model
         return $profile;
     }
 
+    public function beforeCreate($model)
+    {
+        if($this->company_name == null) $this->company_name = '-';
+        if($this->identification_number == null) $this->identification_number = '-';
+    }
+
 }
