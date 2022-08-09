@@ -50,7 +50,7 @@ class Plugin extends PluginBase
         });
 
         Event::listen('rainlab.user.register', function ( $user, $data ) {
-            if (array_key_exists('business',$data)
+            if (array_key_exists('business',$data))
             {
                 $data['business']['company_name'] = '-';
                 $data['business']['identification_number'] = '-';
