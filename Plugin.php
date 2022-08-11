@@ -67,6 +67,9 @@ class Plugin extends PluginBase
                 'number',
                 'post_code',
                 'city',
+                'instagram',
+                'linkedin',
+                'youtube'
             ]);
 
             $model->hasOne['business'] = [

@@ -2,3 +2,6 @@
   - Create and update tables
   - add_address_fields_to_user_table.php
   - create_businesses_table.php
+1.0.2:
+  - Add social network fields
+  - add_social_network_fields_to_user_table.php
