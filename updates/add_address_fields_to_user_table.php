@@ -1,4 +1,4 @@
-<?php namespace Depcore\UserReview\Updates;
+<?php namespace Depcore\CompanyInfo\Updates;
 
 use Schema;
 use October\Rain\Database\Schema\Blueprint;
