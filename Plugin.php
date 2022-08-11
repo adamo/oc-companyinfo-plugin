@@ -73,7 +73,6 @@ class Plugin extends PluginBase
                 Business::class,
                 'key' => 'user_id',
             ];
-
         });
 
         User::extend( function($model) {
