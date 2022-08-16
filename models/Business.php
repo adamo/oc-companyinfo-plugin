@@ -50,7 +50,7 @@ class Business extends Model
      * @var array Relations
      */
     public $belongsTo = [
-        'user' => '\RainLab\Users\Models\User',
+        'user' => '\RainLab\User\Models\User',
     ];
 
 
